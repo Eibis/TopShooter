@@ -5,9 +5,10 @@ using UnityEngine;
 public class CharacterInput : MonoBehaviour
 {
     public Animator Anim;
-    public float Speed = 5.0f;
 
     Vector3 MovementVec;
+
+    public Character CharacterRef { get; internal set; }
 
     void Start()
     {
@@ -23,12 +24,12 @@ public class CharacterInput : MonoBehaviour
 
         if (hor_inp != 0.0f)
         {
-            MovementVec += new Vector3(Time.deltaTime * Speed * hor_inp, 0.0f, 0.0f);
+            MovementVec += new Vector3(Time.deltaTime * CharacterRef.Speed * hor_inp, 0.0f, 0.0f);
         }
 
         if (ver_inp != 0.0f)
         {
-            MovementVec += new Vector3(0.0f, Time.deltaTime * Speed * ver_inp, 0.0f);
+            MovementVec += new Vector3(0.0f, Time.deltaTime * CharacterRef.Speed * ver_inp, 0.0f);
         }
 
         transform.position += MovementVec;
