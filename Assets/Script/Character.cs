@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     public WeaponData WeapData;
 
+    public CircleCollider2D Collider;
+
     public float Speed
     {
         get
@@ -63,6 +65,9 @@ public class Character : MonoBehaviour
         RightHandRenderer.sprite = CharData.RightHandGraphics;
         RightHandRenderer.transform.localPosition = CharData.RightHandOffset;
         RightHandRenderer.sortingOrder = CharData.RightHandOrder;
+
+        Collider.offset = CharData.ColliderOffset;
+        Collider.radius = CharData.ColliderRadius;
     }
 
 #if UNITY_EDITOR
@@ -95,6 +100,9 @@ public class Character : MonoBehaviour
         CharData.RightHandGraphics = RightHandRenderer.sprite;
         CharData.RightHandOffset = RightHandRenderer.transform.localPosition;
         CharData.RightHandOrder = RightHandRenderer.sortingOrder;
+
+        CharData.ColliderOffset = Collider.offset;
+        CharData.ColliderRadius = Collider.radius;
     }
 #endif
 

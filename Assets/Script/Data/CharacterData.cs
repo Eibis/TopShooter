@@ -33,6 +33,9 @@ public class CharacterData : ScriptableObject
     public Vector2 RightHandOffset;
     public int RightHandOrder;
 
+    public float ColliderRadius;
+    public Vector2 ColliderOffset;
+
     public float BaseSpeed = 5.0f;
 
 
