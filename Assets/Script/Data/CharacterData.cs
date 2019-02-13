@@ -33,6 +33,9 @@ public class CharacterData : ScriptableObject
     public Vector2 RightHandOffset;
     public int RightHandOrder;
 
+    public Vector2 WeaponOffset;
+    public int WeaponOrder;
+
     public float ColliderRadius;
     public Vector2 ColliderOffset;
 

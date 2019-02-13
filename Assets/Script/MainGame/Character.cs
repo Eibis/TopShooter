@@ -15,9 +15,11 @@ public class Character : MonoBehaviour
     public SpriteRenderer LeftHandRenderer;
     public SpriteRenderer RightHandRenderer;
 
+    public SpriteRenderer WeaponRenderer;
+
     public CharacterInput Input;
 
-    public WeaponData WeapData;
+    public Weapon Weapon;
 
     public CircleCollider2D Collider;
 
@@ -66,6 +68,9 @@ public class Character : MonoBehaviour
         RightHandRenderer.transform.localPosition = CharData.RightHandOffset;
         RightHandRenderer.sortingOrder = CharData.RightHandOrder;
 
+        WeaponRenderer.transform.localPosition = CharData.WeaponOffset;
+        WeaponRenderer.sortingOrder = CharData.WeaponOrder;
+
         Collider.offset = CharData.ColliderOffset;
         Collider.radius = CharData.ColliderRadius;
     }
@@ -100,6 +105,9 @@ public class Character : MonoBehaviour
         CharData.RightHandGraphics = RightHandRenderer.sprite;
         CharData.RightHandOffset = RightHandRenderer.transform.localPosition;
         CharData.RightHandOrder = RightHandRenderer.sortingOrder;
+
+        CharData.WeaponOffset = WeaponRenderer.transform.localPosition;
+        CharData.WeaponOrder = WeaponRenderer.sortingOrder;
 
         CharData.ColliderOffset = Collider.offset;
         CharData.ColliderRadius = Collider.radius;

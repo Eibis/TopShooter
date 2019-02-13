@@ -6,5 +6,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public Sprite Graphics;
-    public Vector3 FirePositionOffset;
+
+    public Vector2 FirePositionOffset;
+
 }

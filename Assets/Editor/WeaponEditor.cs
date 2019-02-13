@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Character))]
-public class CharacterEditor : Editor
+[CustomEditor(typeof(Weapon))]
+public class WeaponEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        Character character = (Character)target;
+        Weapon weapon = (Weapon)target;
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
-        if (GUILayout.Button("Apply Character"))
+        if (GUILayout.Button("Apply Weapon"))
         {
-            character.SetGraphics();
+            weapon.SetGraphics();
         }
 
-        if (GUILayout.Button("Save Character"))
+        if (GUILayout.Button("Save Weapon"))
         {
-            character.SaveGraphics();
+            weapon.SaveGraphics();
         }
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
