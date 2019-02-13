@@ -8,6 +8,10 @@ public class Weapon : MonoBehaviour
 
     public SpriteRenderer WeaponRenderer;
 
+    public GameObject ProjectilePrefab;
+
+    /*TODO projectile pool and setting infos like damage*/
+
     public void SetGraphics()
     {
         WeaponRenderer.sprite = WeapData.Graphics;
@@ -21,4 +25,5 @@ public class Weapon : MonoBehaviour
     }
 
 #endif
+
 }

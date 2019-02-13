@@ -591,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeapData: {fileID: 11400000, guid: f2a9a54807fc92447b6642de2f7efcc1, type: 2}
   WeaponRenderer: {fileID: 880290584548645780}
+  ProjData: {fileID: 11400000, guid: 270e1afa53719f64aa857535577d7ab8, type: 2}
 --- !u!114 &3560883996869303065
 MonoBehaviour:
   m_ObjectHideFlags: 0
