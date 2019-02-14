@@ -487,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880290583722750926}
-  - component: {fileID: 7290497165639544577}
+  - component: {fileID: 8632036863505847416}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -510,7 +510,7 @@ Transform:
   m_Father: {fileID: 880290584402737132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7290497165639544577
+--- !u!95 &8632036863505847416
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -542,6 +542,7 @@ GameObject:
   - component: {fileID: 7169755421677091148}
   - component: {fileID: 3560883996869303065}
   - component: {fileID: 4564177895307423221}
+  - component: {fileID: 1857052909307039670}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -576,7 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34aa21b002cd09b4a9e4073e06bd4600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Anim: {fileID: 7290497165639544577}
 --- !u!114 &7169755421677091148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +591,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeapData: {fileID: 11400000, guid: f2a9a54807fc92447b6642de2f7efcc1, type: 2}
   WeaponRenderer: {fileID: 880290584548645780}
-  ProjData: {fileID: 11400000, guid: 270e1afa53719f64aa857535577d7ab8, type: 2}
+  ProjectilePoolSize: 15
+  LastShootTime: 0
+  FireCooldown: 0
+  ProjectileTTL: 0
+  ProjectileSpeed: 0
 --- !u!114 &3560883996869303065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,6 +620,7 @@ MonoBehaviour:
   Input: {fileID: 2610634575449607439}
   Weapon: {fileID: 7169755421677091148}
   Collider: {fileID: 4564177895307423221}
+  Anim: {fileID: 8632036863505847416}
 --- !u!58 &4564177895307423221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -632,6 +637,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &1857052909307039670
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880290584402737133}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &880290584477252452
 GameObject:
   m_ObjectHideFlags: 0

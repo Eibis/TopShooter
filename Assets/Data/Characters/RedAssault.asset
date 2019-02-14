@@ -14,18 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyGraphics: {fileID: 21300000, guid: dc4fcef208cf9bd458f728139f5830e4, type: 3}
   BodyOffset: {x: 0, y: 0}
+  BodyOrder: 0
   HeadGraphics: {fileID: 21300000, guid: a4b1e529ddd7fdd4f8966e2226caa078, type: 3}
   HeadOffset: {x: 0.002000093, y: 0.065}
+  HeadOrder: 0
   BackpackGraphics: {fileID: 21300000, guid: 71316eda3a050474bbf9f6aace87ae32, type: 3}
   BackpackOffset: {x: -0.115, y: -0.326}
+  BackpackOrder: 0
   LeftShoulderGraphics: {fileID: 21300000, guid: ea9c5f017662e404eb32a6e55568ab9f,
     type: 3}
   LeftShoulderOffset: {x: -0.2609999, y: 0.142}
+  LeftShoulderOrder: 0
   RightShoulderGraphics: {fileID: 21300000, guid: 484fc26d2bf1aa7478c79a1919f24307,
     type: 3}
   RightShoulderOffset: {x: 0.369, y: -0.118}
+  RightShoulderOrder: 0
   LeftHandGraphics: {fileID: 21300000, guid: 6a3f773e76031ec45af54ff2f252f66c, type: 3}
   LeftHandOffset: {x: 0, y: 0}
+  LeftHandOrder: 0
   RightHandGraphics: {fileID: 21300000, guid: 2fe21e8147fc81344bdc7493e9af3ad8, type: 3}
   RightHandOffset: {x: 0.03699994, y: 0.286}
+  RightHandOrder: 0
+  WeaponOffset: {x: 0, y: 0.42}
+  WeaponOrder: 0
+  ColliderRadius: 0.55
+  ColliderOffset: {x: 0, y: 0}
   BaseSpeed: 5

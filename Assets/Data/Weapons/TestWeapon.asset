@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ec4798163272c49ac7caafae3da4fb, type: 3}
   m_Name: TestWeapon
   m_EditorClassIdentifier: 
-  Graphics: {fileID: 21300000, guid: ea25cdfe0f20dc144af18dd322dd2df7, type: 3}
-  FirePositionOffset: {x: 0, y: 0, z: 0}
+  Graphics: {fileID: 21300000, guid: 5dee39cefe3cd75468b05b0fb6d40f94, type: 3}
+  FirePositionOffset: {x: 0.1, y: 1}
+  ProjectilePrefab: {fileID: 4562409880445696072, guid: 2cdcb5f46d65a564ba1fa9bcb661789e,
+    type: 3}
+  FireCooldown: 0.5
+  ProjectileTTL: 4
+  ProjectileSpeed: 10

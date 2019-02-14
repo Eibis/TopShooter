@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class Character : MonoBehaviour
 {
     public CharacterData CharData;
@@ -22,6 +26,10 @@ public class Character : MonoBehaviour
     public Weapon Weapon;
 
     public CircleCollider2D Collider;
+
+    public Animator Anim;
+
+    Vector3 MovementVec;
 
     public float Speed
     {
@@ -111,11 +119,46 @@ public class Character : MonoBehaviour
 
         CharData.ColliderOffset = Collider.offset;
         CharData.ColliderRadius = Collider.radius;
+
+        EditorUtility.SetDirty(CharData);
+        AssetDatabase.SaveAssets();
     }
 #endif
 
     void Update()
     {
         
+    }
+
+    public void Move(float hor_inp, float ver_inp)
+    {
+        MovementVec = new Vector3(0.0f, 0.0f, 0.0f);
+
+        if (hor_inp != 0.0f)
+        {
+            MovementVec += new Vector3(Time.deltaTime * Speed * hor_inp, 0.0f, 0.0f);
+        }
+
+        if (ver_inp != 0.0f)
+        {
+            MovementVec += new Vector3(0.0f, Time.deltaTime * Speed * ver_inp, 0.0f);
+        }
+
+        transform.position += MovementVec;
+
+        Anim.SetFloat("Speed", MovementVec.magnitude);
+    }
+
+    internal void RotateTowards(Vector2 mousePosition)
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition) - transform.position;
+        var angleRadians = Mathf.Atan2(mousePosition.y, mousePosition.x);
+
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, angleRadians * Mathf.Rad2Deg - 90.0f);
+    }
+
+    public void Fire()
+    {
+        Weapon.Fire();
     }
 }
