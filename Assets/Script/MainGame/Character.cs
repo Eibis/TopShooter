@@ -29,6 +29,8 @@ public class Character : MonoBehaviour
 
     public Animator Anim;
 
+    RaycastHit2D[] HitsBuffer = new RaycastHit2D[10];
+
     Vector3 MovementVec;
 
     public float Speed
@@ -122,13 +124,9 @@ public class Character : MonoBehaviour
 
         EditorUtility.SetDirty(CharData);
         AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 #endif
-
-    void Update()
-    {
-        
-    }
 
     public void Move(float hor_inp, float ver_inp)
     {
@@ -143,6 +141,11 @@ public class Character : MonoBehaviour
         {
             MovementVec += new Vector3(0.0f, Time.deltaTime * Speed * ver_inp, 0.0f);
         }
+
+        int hit = Physics2D.CircleCastNonAlloc(transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer);
+
+        if (hit > 1)
+            return;
 
         transform.position += MovementVec;
 

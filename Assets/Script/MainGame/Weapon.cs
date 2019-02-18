@@ -61,6 +61,7 @@ public class Weapon : MonoBehaviour
 
         EditorUtility.SetDirty(WeapData);
         AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
 #endif
