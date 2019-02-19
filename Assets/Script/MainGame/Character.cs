@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
 
     RaycastHit2D[] HitsBuffer = new RaycastHit2D[10];
 
-    Vector3 MovementVec;
+    Vector2 MovementVec;
     
     public float RotationSpeed
     {
@@ -46,6 +46,14 @@ public class Character : MonoBehaviour
         get
         {
             return CharData.BaseSpeed;
+        }
+    }
+
+    public float MaxSpeed
+    {
+        get
+        {
+            return CharData.MaxSpeed;
         }
     }
 
@@ -138,24 +146,37 @@ public class Character : MonoBehaviour
 
     public void Move(float hor_inp, float ver_inp)
     {
-        MovementVec = new Vector3(0.0f, 0.0f, 0.0f);
+        MovementVec = new Vector2(0.0f, 0.0f);
+
+        float scaled_speed = Time.deltaTime * Speed;
 
         if (hor_inp != 0.0f)
         {
-            MovementVec += new Vector3(Time.deltaTime * Speed * hor_inp, 0.0f, 0.0f);
+            MovementVec += new Vector2(scaled_speed * hor_inp, 0.0f);
         }
 
         if (ver_inp != 0.0f)
         {
-            MovementVec += new Vector3(0.0f, Time.deltaTime * Speed * ver_inp, 0.0f);
+            MovementVec += new Vector2(0.0f, scaled_speed * ver_inp);
         }
 
-        int hit = Physics2D.CircleCastNonAlloc(transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer);
+        if (MovementVec.magnitude > MaxSpeed)
+            MovementVec = MovementVec.normalized * MaxSpeed;
 
-        if (hit > 1)
-            return;
+        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer);
 
-        transform.position += MovementVec;
+        if (n_hit > 1)
+        {
+            for (int i = 0; i < n_hit; ++i)
+            {
+                if (HitsBuffer[i].collider == Collider)
+                    continue;
+
+                MovementVec += HitsBuffer[i].normal * MovementVec.magnitude;
+            }
+        }
+
+        transform.position += (Vector3)MovementVec;
 
         Anim.SetFloat("Speed", MovementVec.magnitude);
     }

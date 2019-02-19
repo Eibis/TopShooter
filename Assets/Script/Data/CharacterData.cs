@@ -41,4 +41,6 @@ public class CharacterData : ScriptableObject
 
     public float BaseSpeed = 5.0f;
     public float RotationSpeed = 10.0f;
+    public float MaxSpeed = 10.0f;
+
 }
