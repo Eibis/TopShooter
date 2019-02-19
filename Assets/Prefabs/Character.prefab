@@ -595,6 +595,8 @@ MonoBehaviour:
   FireCooldown: 0
   ProjectileTTL: 0
   ProjectileSpeed: 0
+  CollidersToIgnore:
+  - {fileID: 4564177895307423221}
 --- !u!114 &3560883996869303065
 MonoBehaviour:
   m_ObjectHideFlags: 0

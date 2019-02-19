@@ -96,7 +96,7 @@ public class Character : MonoBehaviour
 
         WeaponRenderer.transform.localPosition = CharData.WeaponOffset;
         WeaponRenderer.sortingOrder = CharData.WeaponOrder;
-
+        
         Collider.offset = CharData.ColliderOffset;
         Collider.radius = CharData.ColliderRadius;
     }

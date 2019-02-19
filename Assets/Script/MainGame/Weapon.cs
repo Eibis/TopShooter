@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
     public float ProjectileTTL;
     public float ProjectileSpeed;
 
+    public List<Collider2D> CollidersToIgnore;
+
     private void Start()
     {
         SetGraphics();

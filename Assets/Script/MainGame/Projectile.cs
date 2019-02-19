@@ -38,6 +38,9 @@ public class Projectile : MonoBehaviour
                 if (HitsBuffer[i].collider == Collider)
                     continue;
 
+                if (ParentWeapon.CollidersToIgnore.Contains(HitsBuffer[i].collider))
+                    continue;
+
                 Hit(HitsBuffer[i].collider);
             }
         }

@@ -131,13 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797d46673f281644395761fb5a2b0d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeapData: {fileID: 11400000, guid: f2a9a54807fc92447b6642de2f7efcc1, type: 2}
+  WeapData: {fileID: 11400000, guid: f54784c40172fd44fbe0c38a6ee2a2a8, type: 2}
   WeaponRenderer: {fileID: 0}
   ProjectilePoolSize: 20
   LastShootTime: 0
   FireCooldown: 0
   ProjectileTTL: 0
   ProjectileSpeed: 0
+  CollidersToIgnore:
+  - {fileID: 4363387933811435746}
+  - {fileID: 4792914117237445296}
 --- !u!1 &7369422672818408196
 GameObject:
   m_ObjectHideFlags: 0
