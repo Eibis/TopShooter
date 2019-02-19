@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Character: {fileID: 880290583749665532}
   MainCamera: {fileID: 519420031}
+  SizeCheck: {x: 40, y: 40}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -337,7 +338,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.23
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

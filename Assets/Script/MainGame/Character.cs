@@ -163,7 +163,7 @@ public class Character : MonoBehaviour
         if (MovementVec.magnitude > MaxSpeed)
             MovementVec = MovementVec.normalized * MaxSpeed;
 
-        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer);
+        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, LayerMask.NameToLayer("Character"));
 
         if (n_hit > 1)
         {

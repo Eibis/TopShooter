@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         if (gameObject.activeSelf)
             transform.position += transform.up * Time.deltaTime * Speed;
 
-        int n_hit = Physics2D.CircleCastNonAlloc(transform.position, Collider.radius, transform.forward, HitsBuffer);
+        int n_hit = Physics2D.CircleCastNonAlloc(transform.position, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, LayerMask.NameToLayer("Character"));
 
         if (n_hit > 1)
         {
