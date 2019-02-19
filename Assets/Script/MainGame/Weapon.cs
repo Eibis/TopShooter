@@ -42,7 +42,8 @@ public class Weapon : MonoBehaviour
 
     public void SetGraphics()
     {
-        WeaponRenderer.sprite = WeapData.Graphics;
+        if(WeaponRenderer != null)
+            WeaponRenderer.sprite = WeapData.Graphics;
 
         FireCooldown = WeapData.FireCooldown;
         ProjectileTTL = WeapData.ProjectileTTL;
@@ -53,7 +54,8 @@ public class Weapon : MonoBehaviour
 
     public void SaveGraphics()
     {
-        WeapData.Graphics = WeaponRenderer.sprite;
+        if (WeaponRenderer != null)
+            WeapData.Graphics = WeaponRenderer.sprite;
 
         WeapData.FireCooldown = FireCooldown;
         WeapData.ProjectileTTL = ProjectileTTL;

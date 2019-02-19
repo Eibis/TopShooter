@@ -40,6 +40,5 @@ public class CharacterData : ScriptableObject
     public Vector2 ColliderOffset;
 
     public float BaseSpeed = 5.0f;
-
-
+    public float RotationSpeed = 10.0f;
 }

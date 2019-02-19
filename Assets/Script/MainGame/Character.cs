@@ -32,6 +32,14 @@ public class Character : MonoBehaviour
     RaycastHit2D[] HitsBuffer = new RaycastHit2D[10];
 
     Vector3 MovementVec;
+    
+    public float RotationSpeed
+    {
+        get
+        {
+            return CharData.RotationSpeed;
+        }
+    }
 
     public float Speed
     {
@@ -152,12 +160,9 @@ public class Character : MonoBehaviour
         Anim.SetFloat("Speed", MovementVec.magnitude);
     }
 
-    internal void RotateTowards(Vector2 mousePosition)
+    internal void Rotate(Quaternion quaternion)
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition) - transform.position;
-        var angleRadians = Mathf.Atan2(mousePosition.y, mousePosition.x);
-
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, angleRadians * Mathf.Rad2Deg - 90.0f);
+        transform.rotation = quaternion;
     }
 
     public void Fire()
