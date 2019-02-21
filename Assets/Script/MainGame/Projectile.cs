@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
             Expire();
 
         if (gameObject.activeSelf)
-            transform.position += transform.up * Time.deltaTime * Speed;
+            transform.Translate(transform.up * Time.deltaTime * Speed, Space.World);
 
         int n_hit = Physics2D.CircleCastNonAlloc(transform.position + transform.TransformDirection(Collider.offset), Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, CollisionLayer);
 
@@ -48,10 +48,7 @@ public class Projectile : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position + transform.TransformDirection(Collider.offset), Collider.radius);
-    }
+
     internal void Init(Weapon weapon)
     {
         ParentWeapon = weapon;

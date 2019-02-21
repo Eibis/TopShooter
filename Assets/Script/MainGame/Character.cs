@@ -67,6 +67,11 @@ public class Character : MonoBehaviour
         SetGraphics();
     }
 
+    private void LateUpdate()
+    {
+        CheckCollision();
+    }
+
     public void SetGraphics()
     {
         BodyRenderer.sprite = CharData.BodyGraphics;
@@ -149,8 +154,6 @@ public class Character : MonoBehaviour
 
     public void Move(float hor_inp, float ver_inp)
     {
-        MovementVec = new Vector2(0.0f, 0.0f);
-
         float scaled_speed = Time.deltaTime * Speed;
 
         if (hor_inp != 0.0f)
@@ -165,23 +168,14 @@ public class Character : MonoBehaviour
 
         if (MovementVec.magnitude > MaxSpeed)
             MovementVec = MovementVec.normalized * MaxSpeed;
+        
+        transform.Translate((Vector3)MovementVec, Space.World);
 
-        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)(transform.position + transform.TransformDirection(Collider.offset)) + MovementVec, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, CollisionLayer);
-
-        if (n_hit > 1)
-        {
-            for (int i = 0; i < n_hit; ++i)
-            {
-                if (HitsBuffer[i].collider == Collider)
-                    continue;
-
-                MovementVec += HitsBuffer[i].normal * MovementVec.magnitude;
-            }
-        }
-
-        transform.position += (Vector3)MovementVec;
+        CheckCollision();
 
         Anim.SetFloat("Speed", MovementVec.magnitude);
+
+        MovementVec = Vector2.zero;
     }
 
     internal void Rotate(Quaternion quaternion)
@@ -192,5 +186,27 @@ public class Character : MonoBehaviour
     public void Fire()
     {
         Weapon.Fire();
+    }
+
+    public void CheckCollision()
+    {
+        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)(transform.position + transform.TransformDirection(Collider.offset)), Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, CollisionLayer);
+
+        if (n_hit > 1)
+        {
+            Vector2 adjustment = Vector2.zero;
+
+            float adj_amount = MovementVec.magnitude > 0 ? MovementVec.magnitude : (0.5f * Speed * Time.deltaTime);
+
+            for (int i = 0; i < n_hit; ++i)
+            {
+                if (HitsBuffer[i].collider == Collider)
+                    continue;
+
+                adjustment += HitsBuffer[i].normal * adj_amount;
+            }
+
+            transform.Translate((Vector3)adjustment, Space.World);
+        }
     }
 }
