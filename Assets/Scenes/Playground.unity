@@ -312,6 +312,8 @@ MonoBehaviour:
   Character: {fileID: 880290583749665532}
   MainCamera: {fileID: 519420031}
   SizeCheck: {x: 40, y: 40}
+  MinSize: 4.5
+  CollisionLayer: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

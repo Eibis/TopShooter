@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class CameraManager : MonoBehaviour
     public Transform Character;
     public Camera MainCamera;
     public Vector2 SizeCheck;
+    public float MinSize;
 
     Collider2D[] HitsBuffer = new Collider2D[10];
 
@@ -14,17 +16,29 @@ public class CameraManager : MonoBehaviour
 
     float OriginalOrthoSize = 0.0f;
 
+    public int CollisionLayer;
+
+    public float CameraSizeSpeed = 5.0f;
+    public float TargetOrthoSize;
+
     private void Start()
     {
         OriginalZ = MainCamera.transform.position.z;
         OriginalOrthoSize = MainCamera.orthographicSize;
+        TargetOrthoSize = OriginalOrthoSize;
+        CollisionLayer = 1 << LayerMask.NameToLayer("Character");
     }
 
     void LateUpdate()
     {
+        HandleSizeUpdate();
+    }
+
+    private void HandleSizeUpdate()
+    {
         MainCamera.transform.position = new Vector3(Character.position.x, Character.position.y, OriginalZ);
 
-        int n_hit = Physics2D.OverlapBoxNonAlloc(transform.position, SizeCheck, 0.0f, HitsBuffer, LayerMask.NameToLayer("Character"));
+        int n_hit = Physics2D.OverlapBoxNonAlloc(transform.position, SizeCheck, 0.0f, HitsBuffer, CollisionLayer);
 
         if (n_hit > 1)
         {
@@ -45,12 +59,18 @@ public class CameraManager : MonoBehaviour
                 }
             }
 
-            MainCamera.orthographicSize = CalculateOrtographicSize(max_half_size);
+            Vector2 size = max_half_size * 2.5f;
+
+            float new_ortho_size = CalculateOrtographicSize(size);
+
+            TargetOrthoSize = new_ortho_size < MinSize ? MinSize : new_ortho_size;
         }
         else
         {
-            MainCamera.orthographicSize = OriginalOrthoSize;
+            TargetOrthoSize = OriginalOrthoSize;
         }
+
+        MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, TargetOrthoSize, Time.deltaTime * CameraSizeSpeed);
     }
 
     private float CalculateOrtographicSize(Vector2 size)

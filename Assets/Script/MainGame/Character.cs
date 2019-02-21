@@ -29,6 +29,8 @@ public class Character : MonoBehaviour
 
     public Animator Anim;
 
+    public int CollisionLayer;
+
     RaycastHit2D[] HitsBuffer = new RaycastHit2D[10];
 
     Vector2 MovementVec;
@@ -60,6 +62,7 @@ public class Character : MonoBehaviour
     void Awake()
     {
         Input.CharacterRef = this;
+        CollisionLayer = 1 << LayerMask.NameToLayer("Character");
 
         SetGraphics();
     }
@@ -163,7 +166,7 @@ public class Character : MonoBehaviour
         if (MovementVec.magnitude > MaxSpeed)
             MovementVec = MovementVec.normalized * MaxSpeed;
 
-        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)transform.position + MovementVec, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, LayerMask.NameToLayer("Character"));
+        int n_hit = Physics2D.CircleCastNonAlloc((Vector2)(transform.position + transform.TransformDirection(Collider.offset)) + MovementVec, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, CollisionLayer);
 
         if (n_hit > 1)
         {

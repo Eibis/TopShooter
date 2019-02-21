@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
 {
     public CircleCollider2D Collider;
 
+    [HideInInspector]
+    public int CollisionLayer;
+
     Weapon ParentWeapon;
 
     float TTL;
@@ -18,7 +21,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        
+        CollisionLayer = 1 << LayerMask.NameToLayer("Character");
     }
 
     void Update()
@@ -29,9 +32,9 @@ public class Projectile : MonoBehaviour
         if (gameObject.activeSelf)
             transform.position += transform.up * Time.deltaTime * Speed;
 
-        int n_hit = Physics2D.CircleCastNonAlloc(transform.position, Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, LayerMask.NameToLayer("Character"));
+        int n_hit = Physics2D.CircleCastNonAlloc(transform.position + transform.TransformDirection(Collider.offset), Collider.radius, transform.forward, HitsBuffer, Mathf.Infinity, CollisionLayer);
 
-        if (n_hit > 1)
+        if (n_hit > 0)
         {
             for(int i = 0; i < n_hit; ++i)
             {
@@ -45,7 +48,10 @@ public class Projectile : MonoBehaviour
             }
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position + transform.TransformDirection(Collider.offset), Collider.radius);
+    }
     internal void Init(Weapon weapon)
     {
         ParentWeapon = weapon;
