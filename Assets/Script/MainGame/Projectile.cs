@@ -19,25 +19,13 @@ public class Projectile : MonoBehaviour
 
     RaycastHit2D[] HitsBuffer = new RaycastHit2D[5];
 
-    Material ScrollableMaterial;
-    float CurrentScroll = 0.0f;
-    float ScrollSpeed = 5.0f;
-
     void Start()
     {
         CollisionLayer = 1 << LayerMask.NameToLayer("Character");
-        ScrollableMaterial = GetComponent<SpriteRenderer>().material;
     }
 
     void Update()
     {
-        CurrentScroll += ScrollSpeed * Time.deltaTime;
-        foreach (var texture_name in ScrollableMaterial.GetTexturePropertyNames())
-        {
-            ScrollableMaterial.SetTextureOffset(texture_name, new Vector2(0, -CurrentScroll));
-        }
-        //https://answers.unity.com/questions/605905/dynamic-offset-tiling-for-spriterenderer.html
-        //https://forum.unity.com/threads/is-it-still-possible-to-scroll-sprite-textures-with-material-maintextureoffset.451947/
         if (Time.time - LastFireTime > TTL)
             Expire();
 
