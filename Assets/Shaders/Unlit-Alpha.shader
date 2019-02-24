@@ -9,6 +9,7 @@ Shader "Custom/Unlit/Transparent" {
 Properties {
 	_MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
 	_NoiseTexture("Base (RGB) Trans (A)", 2D) = "white" {}
+	_TimeMultiplier("Time Multiplier", Float) = 1.0
 }
 
 SubShader {
@@ -43,6 +44,7 @@ SubShader {
 			sampler2D _MainTex;
 			sampler2D _NoiseTexture;
             float4 _MainTex_ST;
+			float _TimeMultiplier;
 
             v2f vert (appdata_t v)
             {
@@ -57,7 +59,12 @@ SubShader {
 
             fixed4 frag (v2f i) : SV_Target
             {
-				fixed2 xyOffset = tex2D(_NoiseTexture, i.texcoord + float2(_Time.x, _Time.x)).rg;
+				float x_offset = 0 * _Time.x * _TimeMultiplier;
+				float y_offset = _Time.x * _TimeMultiplier;
+
+				y_offset -= ceil(y_offset);
+
+				fixed2 xyOffset = tex2D(_NoiseTexture, i.texcoord + float2(x_offset, y_offset)).rg;
                 fixed4 col = tex2D(_MainTex, i.texcoord + xyOffset);
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
