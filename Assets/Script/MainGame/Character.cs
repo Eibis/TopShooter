@@ -21,8 +21,6 @@ public class Character : MonoBehaviour
 
     public SpriteRenderer WeaponRenderer;
 
-    public CharacterInput Input;
-
     public Weapon Weapon;
 
     public CircleCollider2D Collider;
@@ -61,7 +59,6 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
-        Input.CharacterRef = this;
         CollisionLayer = 1 << LayerMask.NameToLayer("Character");
 
         SetGraphics();

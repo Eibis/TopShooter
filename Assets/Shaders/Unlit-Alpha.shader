@@ -57,12 +57,28 @@ SubShader {
                 return o;
             }
 
+			float get_offset(float time)
+			{
+				return time / 2.5 * 0.5;
+			}
+
             fixed4 frag (v2f i) : SV_Target
             {
-				float x_offset = 0 * _Time.x * _TimeMultiplier;
-				float y_offset = _Time.x * _TimeMultiplier;
+				float x_offset = 1 * _Time.x * _TimeMultiplier;
+				float y_offset = 0 * _Time.x * _TimeMultiplier;
 
-				y_offset -= ceil(y_offset);
+				float time = fmod(_Time.x, 5);
+
+				if (time < 2.5)
+				{
+					x_offset = get_offset(time);
+				}
+				else
+				{
+					x_offset = get_offset(5 - time);
+				}
+
+				x_offset *= _TimeMultiplier;
 
 				fixed2 xyOffset = tex2D(_NoiseTexture, i.texcoord + float2(x_offset, y_offset)).rg;
                 fixed4 col = tex2D(_MainTex, i.texcoord + xyOffset);

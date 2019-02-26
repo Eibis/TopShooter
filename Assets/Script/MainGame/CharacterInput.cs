@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CharacterInput : MonoBehaviour
 {
-
-    public Character CharacterRef { get; internal set; }
+    public Character CharacterRef;
 
     void Start()
     {
