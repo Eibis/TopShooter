@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterInput : MonoBehaviour
 {
-    public Character CharacterRef;
+    public Humanoid CharacterRef;
 
     void Start()
     {

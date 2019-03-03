@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 4427322695283268531}
   - component: {fileID: 4427322695283268524}
   - component: {fileID: 4427322695283268525}
+  - component: {fileID: 1325369713}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
@@ -115,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049f92796cd6efe498327f0130d4c814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 4427322695283268525}
+  CharacterRef: {fileID: 1325369713}
   ViewRange: 20
-  RotationSpeed: 5
+  FireRange: 10
   State: 0
 --- !u!114 &4427322695283268525
 MonoBehaviour:
@@ -141,6 +142,24 @@ MonoBehaviour:
   CollidersToIgnore:
   - {fileID: 4363387933811435746}
   - {fileID: 4792914117237445296}
+--- !u!114 &1325369713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427322695283268534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cd11fbd2820db4dadba838eceb7d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharData: {fileID: 11400000, guid: 6dc8636e0e3180b44862e58a36ec227e, type: 2}
+  Weapon: {fileID: 4427322695283268525}
+  Collider: {fileID: 0}
+  Anim: {fileID: 0}
+  CollisionLayer: 0
+  Damage: 0
 --- !u!1 &7369422672818408196
 GameObject:
   m_ObjectHideFlags: 0

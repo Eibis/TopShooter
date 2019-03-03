@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public Transform Character;
+    Transform Character;
     public Camera MainCamera;
     public Vector2 SizeCheck;
     public float MinSize;
@@ -23,6 +23,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        Character = GameManager.Instance.Player.transform;
         OriginalZ = MainCamera.transform.position.z;
         OriginalOrthoSize = MainCamera.orthographicSize;
         TargetOrthoSize = OriginalOrthoSize;

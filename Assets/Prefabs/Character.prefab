@@ -540,8 +540,8 @@ GameObject:
   - component: {fileID: 880290584402737132}
   - component: {fileID: 2610634575449607439}
   - component: {fileID: 7169755421677091148}
-  - component: {fileID: 3560883996869303065}
   - component: {fileID: 4564177895307423221}
+  - component: {fileID: 9100311600178443820}
   m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34aa21b002cd09b4a9e4073e06bd4600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterRef: {fileID: 3560883996869303065}
+  CharacterRef: {fileID: 9100311600178443820}
 --- !u!114 &7169755421677091148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,31 +598,6 @@ MonoBehaviour:
   ProjectileSpeed: 0
   CollidersToIgnore:
   - {fileID: 4564177895307423221}
---- !u!114 &3560883996869303065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880290584402737133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2cd11fbd2820db4dadba838eceb7d32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharData: {fileID: 11400000, guid: a67f290e1e47f7540832228826f5248c, type: 2}
-  BodyRenderer: {fileID: 880290583158645089}
-  HeadRenderer: {fileID: 880290583661653273}
-  BackpackRenderer: {fileID: 880290584477252454}
-  LeftShoulderRenderer: {fileID: 880290583320644058}
-  RightShoulderRenderer: {fileID: 880290583574898662}
-  LeftHandRenderer: {fileID: 880290583004329683}
-  RightHandRenderer: {fileID: 880290583017634470}
-  WeaponRenderer: {fileID: 880290584548645780}
-  Weapon: {fileID: 7169755421677091148}
-  Collider: {fileID: 4564177895307423221}
-  Anim: {fileID: 8632036863505847416}
-  CollisionLayer: 0
 --- !u!58 &4564177895307423221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -639,6 +614,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.55
+--- !u!114 &9100311600178443820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880290584402737133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf28b580e9386f34baee123f5e43fb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharData: {fileID: 11400000, guid: a67f290e1e47f7540832228826f5248c, type: 2}
+  Weapon: {fileID: 7169755421677091148}
+  Collider: {fileID: 4564177895307423221}
+  Anim: {fileID: 8632036863505847416}
+  CollisionLayer: 0
+  Damage: 0
+  BodyRenderer: {fileID: 880290583158645089}
+  HeadRenderer: {fileID: 880290583661653273}
+  BackpackRenderer: {fileID: 880290584477252454}
+  LeftShoulderRenderer: {fileID: 880290583320644058}
+  RightShoulderRenderer: {fileID: 880290583574898662}
+  LeftHandRenderer: {fileID: 880290583004329683}
+  RightHandRenderer: {fileID: 880290583017634470}
+  WeaponRenderer: {fileID: 880290584548645780}
 --- !u!1 &880290584477252452
 GameObject:
   m_ObjectHideFlags: 0

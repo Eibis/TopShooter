@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf5dfc08e9a17844b591dc724e33c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ce04504d8768fa49a94fa751868f6e6, type: 3}
   m_Name: RedAssault
   m_EditorClassIdentifier: 
+  BaseSpeed: 5
+  RotationSpeed: 10
+  MaxSpeed: 10
+  Health: 100
   BodyGraphics: {fileID: 21300000, guid: dc4fcef208cf9bd458f728139f5830e4, type: 3}
   BodyOffset: {x: 0, y: 0}
   BodyOrder: 0
@@ -39,4 +43,3 @@ MonoBehaviour:
   WeaponOrder: 0
   ColliderRadius: 0.55
   ColliderOffset: {x: 0, y: 0}
-  BaseSpeed: 5

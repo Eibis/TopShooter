@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf5dfc08e9a17844b591dc724e33c72, type: 3}
+  m_Name: Turret
+  m_EditorClassIdentifier: 
+  BodyGraphics: {fileID: 0}
+  BodyOffset: {x: 0, y: 0}
+  BodyOrder: 0
+  HeadGraphics: {fileID: 0}
+  HeadOffset: {x: 0, y: 0}
+  HeadOrder: 0
+  BackpackGraphics: {fileID: 0}
+  BackpackOffset: {x: 0, y: 0}
+  BackpackOrder: 0
+  LeftShoulderGraphics: {fileID: 0}
+  LeftShoulderOffset: {x: 0, y: 0}
+  LeftShoulderOrder: 0
+  RightShoulderGraphics: {fileID: 0}
+  RightShoulderOffset: {x: 0, y: 0}
+  RightShoulderOrder: 0
+  LeftHandGraphics: {fileID: 0}
+  LeftHandOffset: {x: 0, y: 0}
+  LeftHandOrder: 0
+  RightHandGraphics: {fileID: 0}
+  RightHandOffset: {x: 0, y: 0}
+  RightHandOrder: 0
+  WeaponOffset: {x: 0, y: 0}
+  WeaponOrder: 0
+  ColliderRadius: 0
+  ColliderOffset: {x: 0, y: 0}
+  BaseSpeed: 5
+  RotationSpeed: 10
+  MaxSpeed: 10
+  Health: 100

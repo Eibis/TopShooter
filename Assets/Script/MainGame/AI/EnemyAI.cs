@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyAI : GeneralAI
 {
-    public Character CharacterRef;
+    Humanoid HumanRef;
 
     protected new void Start()
     {
         base.Start();
 
-        RotationSpeed = CharacterRef.RotationSpeed;
+        HumanRef = CharacterRef as Humanoid;
     }
 
     protected override void UpdateState()
@@ -37,14 +37,14 @@ public class EnemyAI : GeneralAI
 
                 Vector2 dir = (Player.transform.position - transform.position).normalized;
 
-                CharacterRef.Move(dir.x, dir.y);
+                HumanRef.Move(dir.x, dir.y);
 
                 break;
             case AIState.FIRING:
 
                 RotateTowards(Player.transform.position);
 
-                CharacterRef.Fire();
+                HumanRef.Fire();
 
                 break;
         }

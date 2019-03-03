@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Character))]
+[CustomEditor(typeof(Humanoid))]
 public class CharacterEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        Character character = (Character)target;
+        Humanoid character = (Humanoid)target;
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 

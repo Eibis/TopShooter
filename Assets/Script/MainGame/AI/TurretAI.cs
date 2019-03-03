@@ -23,7 +23,7 @@ public class TurretAI : GeneralAI
 
                 RotateTowards(Player.transform.position);
 
-                Weapon.Fire();
+                CharacterRef.Fire();
 
                 break;
         }
@@ -31,6 +31,6 @@ public class TurretAI : GeneralAI
 
     public void Fire()
     {
-        Weapon.Fire();
+        CharacterRef.Fire();
     }
 }
