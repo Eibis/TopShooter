@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a59ecf2fdb40244a652ee222207aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
+  Character: {fileID: 1338143606}
   MainCamera: {fileID: 519420031}
   SizeCheck: {x: 40, y: 40}
   MinSize: 4.5
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250eeea5284b4ea42b8619cb4faa2919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1338143603}
 --- !u!1 &627237769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1218,24 @@ Transform:
   m_Father: {fileID: 802557114}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338143603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3560883996869303065, guid: 2cd7ca8a1390f5a4888ae5ce983b54de,
+    type: 3}
+  m_PrefabInstance: {fileID: 510484026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cd11fbd2820db4dadba838eceb7d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1338143606 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 880290584402737132, guid: 2cd7ca8a1390f5a4888ae5ce983b54de,
+    type: 3}
+  m_PrefabInstance: {fileID: 510484026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1581361770
 GameObject:
   m_ObjectHideFlags: 0
