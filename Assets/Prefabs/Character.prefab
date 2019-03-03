@@ -626,11 +626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf28b580e9386f34baee123f5e43fb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharData: {fileID: 11400000, guid: a67f290e1e47f7540832228826f5248c, type: 2}
+  CharData: {fileID: 11400000, guid: d80cd901d75f5f0458edc444acc5e17d, type: 2}
   Weapon: {fileID: 7169755421677091148}
-  Collider: {fileID: 4564177895307423221}
-  Anim: {fileID: 8632036863505847416}
-  CollisionLayer: 0
   Damage: 0
   BodyRenderer: {fileID: 880290583158645089}
   HeadRenderer: {fileID: 880290583661653273}
@@ -640,6 +637,9 @@ MonoBehaviour:
   LeftHandRenderer: {fileID: 880290583004329683}
   RightHandRenderer: {fileID: 880290583017634470}
   WeaponRenderer: {fileID: 880290584548645780}
+  Collider: {fileID: 4564177895307423221}
+  Anim: {fileID: 8632036863505847416}
+  CollisionLayer: 0
 --- !u!1 &880290584477252452
 GameObject:
   m_ObjectHideFlags: 0
